@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
 function App() {
+  const [count, setCount] = useState(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{display:"flex",justifyContent:"center",alignItems:"center",height:"250px"}}>
+      <p>You Counter : {count} times</p>
+      <button
+        style={{
+          color: "pink",
+          background: "black",
+          border: "1px solid red",
+          margin: "4px",
+          borderRadius: "6px"
+        }}
+        onClick={() => (count >= 5 ? setCount(count) : setCount(count + 1))}
+      >
+        Tambah
+      </button>
+      <button
+        style={{
+          color: "pink",
+          background: "black",
+          border: "1px solid red",
+          borderRadius: "6px"
+        }}
+        onClick={() => (count <= 0 ? setCount(count) : setCount(count - 1))}
+      >
+        Kurang
+      </button>
     </div>
   );
 }
-
 export default App;
